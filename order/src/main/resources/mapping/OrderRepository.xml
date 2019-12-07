@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lucas.repository.OrderRepository">
+
+
+
+	<resultMap id="orderMap" type="Order">
+		<id column="id" property="id"></id>
+		<result column="state" property="state"></result>
+		<result column="date" property="date"></result>
+		<association property="user" select="com.lucas.repository.UserRepository.findById" column="uid"></association>
+		<association property="menu" select="com.lucas.repository.MenuRepository.findById" column="mid"></association>
+	</resultMap>
+
+
+	<insert id="save" parameterType="Order">
+		insert into t_order (uid,mid,date,state) values(#{user.id},#{menu.id},#{date},0)
+	</insert>
+
+	<select id="findAllByUId" parameterType="int" resultMap="orderMap">
+		select id,uid,mid,date,state from t_order where uid=#{param3} limit #{param1},#{param2}
+	</select>
+	<select id="countByUid" parameterType="int" resultType="int">
+		select  count(*) from t_order where uid=#{param1}
+	</select>
+	<select id="countByState" resultType="int">
+		select  count(*) from t_order where state=0
+	</select>
+	<select id="findAllByState" parameterType="int" resultMap="orderMap">
+		select * from t_order where state=0 limit #{param1},#{param2}
+	</select>
+
+	<update id="updateState" parameterType="long">
+		update  t_order set state=1 where id=#{id}
+	</update>
+
+
+
+</mapper>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="orderingsystem@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.11">
+    <root id="1">
+      <ServerVersion>5.0</ServerVersion>
+      <DefaultCasing>lower/lower</DefaultCasing>
+    </root>
+    <schema id="2" parent="1" name=" booking"/>
+    <schema id="3" parent="1" name="book"/>
+    <schema id="4" parent="1" name="cashbook"/>
+    <schema id="5" parent="1" name="cashbook_db"/>
+    <schema id="6" parent="1" name="crm"/>
+    <schema id="7" parent="1" name="db_bank"/>
+    <schema id="8" parent="1" name="db_book"/>
+    <schema id="9" parent="1" name="db_film"/>
+    <schema id="10" parent="1" name="db_jsp"/>
+    <schema id="11" parent="1" name="db_library"/>
+    <schema id="12" parent="1" name="db_maven"/>
+    <schema id="13" parent="1" name="db_mybatis"/>
+    <schema id="14" parent="1" name="db_pro1"/>
+    <schema id="15" parent="1" name="db_spring"/>
+    <schema id="16" parent="1" name="db_studenginfo"/>
+    <schema id="17" parent="1" name="db_studentinfo"/>
+    <schema id="18" parent="1" name="demo2"/>
+    <schema id="19" parent="1" name="hibernate"/>
+    <schema id="20" parent="1" name="how2java"/>
+    <schema id="21" parent="1" name="information_schema"/>
+    <schema id="22" parent="1" name="lu"/>
+    <schema id="23" parent="1" name="mianshi"/>
+    <schema id="24" parent="1" name="mldn"/>
+    <schema id="25" parent="1" name="mysql"/>
+    <schema id="26" parent="1" name="orderingsystem">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="27" parent="1" name="ruanjianguanli"/>
+    <schema id="28" parent="1" name="shiro"/>
+    <schema id="29" parent="1" name="shoeshop"/>
+    <schema id="30" parent="1" name="studentmanager"/>
+    <schema id="31" parent="1" name="test"/>
+    <schema id="32" parent="1" name="testsqldb"/>
+    <schema id="33" parent="1" name="tmall_springboot"/>
+    <schema id="34" parent="1" name="tmall_ssm"/>
+    <schema id="35" parent="1" name="user"/>
+    <schema id="36" parent="1" name="user1"/>
+  </database-model>
+</dataSource>

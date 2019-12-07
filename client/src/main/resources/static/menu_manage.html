@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" media="all">
+    <title>Title</title>
+</head>
+<script th:src="@{/layui/layui.js}" charset="utf-8"></script>
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="update">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<script type="text/javascript"  th:inline="none">
+    layui.use('table', function(){
+        var table = layui.table;
+        //第一个实例
+        table.render({
+            elem: '#demo'
+            ,height: '480'
+            ,url: '/menu/findAll' //数据接口
+            ,page: true //开启分页
+            ,cols: [[ //表头
+                {field: 'id', title: 'ID', width:100, sort: true, fixed: 'left'}
+                ,{field: 'name', title: '用户名', width:170}
+                ,{field: 'price', title: '价格', width:100, sort: true}
+                ,{field: 'flavor', title: '口味', width:70}
+                ,{field:'tid',width:70,  title: '分类',templet:function(data){
+                        return data.type.name
+                    }
+                }
+                ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:130}
+
+            ]]
+        });
+        table.on('tool(test)',function (obj) {
+            var data=obj.data;
+            if(obj.event === 'update'){
+                window.location.href='/menu/findById/'+data.id;
+            }
+            if(obj.event === 'del'){
+                layer.confirm('确定要删除吗？',function (index) {
+                    window.location.href='/menu/deleteById/'+data.id;
+                    layer.close(menu_manage);
+
+                })
+            }
+
+        })
+
+    });
+</script>
+<body>
+<div class="layui-container" style="width: 700px;height: 600px;margin-top: 0px;padding-top: 60px;">
+
+<table id="demo" lay-filter="test"></table>
+</div>
+</body>
+</html>
